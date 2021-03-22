@@ -16,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 
 
+// Route for the books 
 
 Route::post('/books','\App\Http\Controllers\BooksController@store');
 
 Route::patch('/books/{book}','\App\Http\Controllers\BooksController@update');
 
+Route::delete('/books/{book}','\App\Http\Controllers\BooksController@destroy');
 
+
+// routes for the authors 
+
+Route::post('/authors','\App\Http\Controllers\AuthorController@store');
 

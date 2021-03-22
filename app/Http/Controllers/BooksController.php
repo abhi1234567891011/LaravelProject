@@ -15,7 +15,9 @@ class BooksController extends Controller
             'author' => 'required',
         ]);
 
-        Book::create($data);
+        //book's create method will return us the instance of the record
+        $book = Book::create($data);
+        return redirect($book->path());
     }
 
     public function update(Book $book){
@@ -26,6 +28,13 @@ class BooksController extends Controller
         ]);
 
         $book->update($data);
+        return redirect($book->path());
+    }
+
+    public function destroy(Book $book){
+
+        $book->delete();
+        return redirect('/books');
     }
 
 }
